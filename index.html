@@ -1,4 +1,42 @@
 ---
-layout: home
-# Index page
+layout: page
+title: Home
 ---
+
+<div class="language-switcher">
+  <a href="{{ '/en/' | relative_url }}">English</a>
+  <span> | </span>
+  <a href="{{ '/zh/' | relative_url }}">中文</a>
+</div>
+
+<h2>Latest English posts</h2>
+
+{% assign english_posts = site.posts | where: 'lang', 'en' | limit: 5 %}
+{% if english_posts.size > 0 %}
+<ul>
+  {% for post in english_posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span> — {{ post.date | date: '%Y-%m-%d' }}</span>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No English posts yet.</p>
+{% endif %}
+
+<h2>Latest Chinese posts</h2>
+
+{% assign chinese_posts = site.posts | where: 'lang', 'zh-CN' | limit: 5 %}
+{% if chinese_posts.size > 0 %}
+<ul>
+  {% for post in chinese_posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span> — {{ post.date | date: '%Y-%m-%d' }}</span>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>还没有中文文章。</p>
+{% endif %}

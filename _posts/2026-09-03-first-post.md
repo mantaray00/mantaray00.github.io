@@ -1,6 +1,7 @@
 ---
 title: My First IC Design Note
 date: 2026-09-03 23:30:00 +0200
+lang: en
 categories: [Digital IC]
 tags: [asic, systemverilog]
 ---
